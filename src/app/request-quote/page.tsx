@@ -8,8 +8,8 @@ export default function RequestQuotePage() {
   const [showModal, setShowModal] = useState(false);
 
   // Nigeria contact info
-  const nigeriaPhone = "080-123-4567"; // ✅ Replace with real phone
-  const nigeriaEmail = "info@client.com"; // ✅ Replace with real email
+  const nigeriaPhone = "080-123-4567"; 
+  const nigeriaEmail = "info@client.com"; 
 
   // Show modal if no region selected
   useEffect(() => {
@@ -45,7 +45,7 @@ export default function RequestQuotePage() {
       <Hero
         title="Request a Quote"
         subtitle="Get the best packages tailored for your event in the US or Nigeria."
-        bgImage="/images/request-quote-hero.jpg" // ✅ replace with your actual image
+        bgImage="/images/request-quote-hero.jpg" 
       />
 
       <main className="mx-auto max-w-6xl flex-1 px-6 py-16">
@@ -122,7 +122,7 @@ export default function RequestQuotePage() {
           <section
             className="relative mt-12 rounded-2xl overflow-hidden"
             style={{
-              backgroundImage: "url('/images/us-pricing-bg.jpg')", // ✅ replace with your image
+              backgroundImage: "url('/images/us-pricing-bg.jpg')", 
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}

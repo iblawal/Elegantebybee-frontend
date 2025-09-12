@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Hero from "@/components/Hero";
@@ -69,7 +68,10 @@ export default function Home() {
         viewport={{ once: true, amount: 0.2 }}
       >
         <div className="max-w-6xl mx-auto px-6 bg-black/60 p-8 rounded-lg">
-          <motion.h2 variants={fadeInUp} className="text-3xl font-bold mb-4 text-black">
+          <motion.h2
+            variants={fadeInUp}
+            className="text-3xl font-bold mb-4 text-black"
+          >
             Our Signature Services
           </motion.h2>
           <motion.p variants={fadeInUp} className="mb-10">
@@ -153,7 +155,7 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* Power Section */}
+      {/* Process Section (Concept, Proposal, Discovery, Execution) */}
       <motion.section
         className="py-16 bg-gray-50 text-center"
         variants={staggerContainer}
@@ -161,8 +163,56 @@ export default function Home() {
         whileInView="show"
         viewport={{ once: true, amount: 0.2 }}
       >
+        <div className="max-w-6xl mx-auto px-6">
+          <motion.h2
+            variants={fadeInUp}
+            className="text-3xl font-bold mb-12 text-black"
+          >
+            Our Creative Process
+          </motion.h2>
+
+          <div className="grid md:grid-cols-4 gap-8">
+            {[
+              { title: "Concept", link: "/concept" },
+              { title: "Proposal", link: "/proposal" },
+              { title: "Discovery", link: "/discovery" },
+              { title: "Execution", link: "/execution" },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                variants={fadeInUp}
+                className="bg-brand-gold text-black rounded-lg shadow-lg p-6 hover:bg-black hover:text-brand-gold transition-all duration-300"
+              >
+                <h4 className="font-bold text-xl mb-4">{item.title}</h4>
+                <p className="mb-6">
+                  Learn how we craft unique {item.title.toLowerCase()}s that
+                  bring your vision to life.
+                </p>
+                <Link
+                  href={item.link}
+                  className="inline-block bg-brand-gold text-black px-4 py-2 rounded-md font-semibold shadow-md hover:bg-black hover:text-brand-gold transition"
+                >
+                  Learn More
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Power Section */}
+      <motion.section
+        className="py-16 bg-white text-center"
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+      >
         <div className="max-w-6xl mx-auto px-4">
-          <motion.h2 variants={fadeInUp} className="text-3xl font-bold mb-3 text-black">
+          <motion.h2
+            variants={fadeInUp}
+            className="text-3xl font-bold mb-3 text-black"
+          >
             The Power Behind ELEGANTE BEE
           </motion.h2>
           <motion.p variants={fadeInUp} className="mb-12 text-brand-dark">
@@ -184,7 +234,7 @@ export default function Home() {
               },
               {
                 title: "Service-Oriented",
-                text: "Our capital is in the service we provide — rooted in trust, delivered with finesse, sealed with style.",
+                text: "Our capital is in the service we provide - rooted in trust, delivered with finesse, sealed with style.",
                 variant: fadeInRight,
               },
             ].map((card, i) => (
@@ -194,7 +244,7 @@ export default function Home() {
                 className="bg-[#bfa14d] rounded-2xl shadow-md p-6 hover:bg-black hover:scale-105 transition-all text-white"
               >
                 <Image
-                  src={`/${card.title.toLowerCase().replace(/\s+/g, '-')}.jpg`}
+                  src={`/${card.title.toLowerCase().replace(/\s+/g, "-")}.jpg`}
                   alt={card.title}
                   width={350}
                   height={200}
@@ -230,10 +280,12 @@ export default function Home() {
           <motion.div variants={fadeInRight}>
             <h2 className="text-3xl font-bold mb-4">Who We Are</h2>
             <p>
-              At <strong>ELEGANTE BEE SERVICES</strong>, we don't just plan
-              events, we craft experiences.
+              At <strong>ELEGANTE BEE SERVICES</strong>, "We don&apos;t just
+              design, we architect experiences"
             </p>
-            <p className="italic mt-2">"We believe elegance is a language..."</p>
+            <p className="italic mt-2">
+              &quot;We believe elegance is a language...&quot;
+            </p>
             <Link
               href="/about"
               className="inline-block mt-4 bg-brand-gold text-black px-6 py-3 rounded-lg font-semibold hover:bg-black hover:text-white"
@@ -263,7 +315,7 @@ export default function Home() {
           <motion.div
             animate={{ x: [0, -50, 0] }}
             transition={{ repeat: Infinity, duration: 10 }}
-            className="relative bg-white p-6 rounded-lg shadow min-h-[200px]"
+            className="relative bg-brand-gold p-6 rounded-lg shadow-lg min-h-[200px] text-black"
           >
             <p className="italic whitespace-pre-line">
               {testimonials[current].text}
@@ -272,13 +324,13 @@ export default function Home() {
             {/* Controls */}
             <button
               onClick={prevTestimonial}
-              className="absolute top-1/2 left-4 -translate-y-1/2 bg-gray-200 rounded-full p-2 hover:bg-gray-300"
+              className="absolute top-1/2 left-4 -translate-y-1/2 bg-black text-white rounded-full p-2 hover:bg-gray-800"
             >
               &#10094;
             </button>
             <button
               onClick={nextTestimonial}
-              className="absolute top-1/2 right-4 -translate-y-1/2 bg-gray-200 rounded-full p-2 hover:bg-gray-300"
+              className="absolute top-1/2 right-4 -translate-y-1/2 bg-black text-white rounded-full p-2 hover:bg-gray-800"
             >
               &#10095;
             </button>
@@ -290,7 +342,7 @@ export default function Home() {
               <span
                 key={i}
                 className={`h-3 w-3 rounded-full ${
-                  i === current ? "bg-gray-800 scale-110" : "bg-gray-400"
+                  i === current ? "bg-black scale-110" : "bg-gray-600"
                 }`}
               />
             ))}

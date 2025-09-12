@@ -1,5 +1,25 @@
+"use client";
+
 import Hero from "@/components/Hero";
 import Image from "next/image";
+import { motion, Variants } from "framer-motion";
+
+// ✅ Variants (clean + TypeScript safe)
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 50 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: "easeOut" }, // ✅ TS safe
+  },
+};
+
+const staggerContainer: Variants = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.2 },
+  },
+};
 
 export default function ServicesPage() {
   return (
@@ -12,21 +32,41 @@ export default function ServicesPage() {
       />
 
       {/* What We Do */}
-      <section className="py-16 text-center bg-white">
+      <motion.section
+        className="py-16 text-center bg-white"
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+      >
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-black">What We Do</h2>
-          <p className="mt-4 text-gray-700 max-w-3xl mx-auto">
+          <motion.h2
+            variants={fadeInUp}
+            className="text-3xl font-bold text-black"
+          >
+            What We Do
+          </motion.h2>
+          <motion.p
+            variants={fadeInUp}
+            className="mt-4 text-gray-700 max-w-3xl mx-auto"
+          >
             At <span className="font-semibold">ELEGANTE BEE</span>, we
             specialize in crafting timeless events with a touch of luxury, love,
             and personalization. Whether it&apos;s a wedding, birthday,
             anniversary, or brand launch, we make it memorable, meaningful, and
             magical.
-          </p>
+          </motion.p>
         </div>
-      </section>
+      </motion.section>
 
       {/* Services List */}
-      <section className="space-y-20 py-12">
+      <motion.section
+        className="space-y-20 py-12"
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+      >
         <ServiceItem
           title="Event Planning & Coordination"
           text="We handle every detail from concept to execution, ensuring your event runs smoothly and reflects your unique style and vision."
@@ -71,12 +111,12 @@ export default function ServicesPage() {
           imageSrc="/media-coverage.jpg"
           imageAlt="Professional media coverage and publicity"
         />
-      </section>
+      </motion.section>
     </main>
   );
 }
 
-/* Reusable Service Item */
+/* ✅ Reusable Service Item with Animation */
 function ServiceItem({
   title,
   text,
@@ -91,7 +131,8 @@ function ServiceItem({
   reverse?: boolean;
 }) {
   return (
-    <div
+    <motion.div
+      variants={fadeInUp}
       className={`container mx-auto px-4 flex flex-col ${
         reverse ? "md:flex-row-reverse" : "md:flex-row"
       } items-center gap-10`}
@@ -109,6 +150,6 @@ function ServiceItem({
         <h3 className="text-2xl font-bold text-black">{title}</h3>
         <p className="mt-4 text-gray-700">{text}</p>
       </div>
-    </div>
+    </motion.div>
   );
 }
