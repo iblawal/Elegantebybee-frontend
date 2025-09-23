@@ -1,7 +1,5 @@
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
-import ContactSection from "@/components/ContactSection";
 
 export default function Execution() {
   return (

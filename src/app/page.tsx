@@ -280,8 +280,8 @@ export default function Home() {
           <motion.div variants={fadeInRight}>
             <h2 className="text-3xl font-bold mb-4">Who We Are</h2>
             <p>
-              At <strong>ELEGANTE BEE SERVICES</strong>, "We don&apos;t just
-              design, we architect experiences"
+              At <strong>ELEGANTE BEE SERVICES</strong>, &quot;We don&apos;t just
+              design, we architect experiences&quot;
             </p>
             <p className="italic mt-2">
               &quot;We believe elegance is a language...&quot;
@@ -341,9 +341,8 @@ export default function Home() {
             {testimonials.map((_, i) => (
               <span
                 key={i}
-                className={`h-3 w-3 rounded-full ${
-                  i === current ? "bg-black scale-110" : "bg-gray-600"
-                }`}
+                className={`h-3 w-3 rounded-full ${i === current ? "bg-black scale-110" : "bg-gray-600"
+                  }`}
               />
             ))}
           </div>

@@ -1,15 +1,24 @@
+/**
+ * Framer Motion animation variants for ELEGANTE BEE SERVICES
+ * Enterprise-grade animations with consistent timing and easing
+ */
+
 import { Variants, Easing } from "framer-motion";
+import { ANIMATION_DURATION, ANIMATION_EASING } from "./constants";
 
-/** Default cubic-bezier easing */
-const easeOutExpo: Easing = [0.25, 0.1, 0.25, 1];
+/** Optimized easing curves */
+const easeOutExpo: Easing = ANIMATION_EASING.EASE_OUT;
 
-/** Generic Fades */
+/** Generic fade animations */
 export const fadeInLeft: Variants = {
   hidden: { opacity: 0, x: -50 },
   show: {
     opacity: 1,
     x: 0,
-    transition: { duration: 0.4, ease: easeOutExpo },
+    transition: {
+      duration: ANIMATION_DURATION.NORMAL,
+      ease: easeOutExpo,
+    },
   },
 };
 
@@ -18,7 +27,10 @@ export const fadeInRight: Variants = {
   show: {
     opacity: 1,
     x: 0,
-    transition: { duration: 0.4, ease: easeOutExpo },
+    transition: {
+      duration: ANIMATION_DURATION.NORMAL,
+      ease: easeOutExpo,
+    },
   },
 };
 
@@ -27,7 +39,10 @@ export const fadeInUp: Variants = {
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.4, ease: easeOutExpo },
+    transition: {
+      duration: ANIMATION_DURATION.NORMAL,
+      ease: easeOutExpo,
+    },
   },
 };
 
@@ -36,7 +51,10 @@ export const fadeInDown: Variants = {
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.4, ease: easeOutExpo },
+    transition: {
+      duration: ANIMATION_DURATION.NORMAL,
+      ease: easeOutExpo,
+    },
   },
 };
 
@@ -45,25 +63,62 @@ export const fadeInCenter: Variants = {
   show: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.4, ease: easeOutExpo },
+    transition: {
+      duration: ANIMATION_DURATION.NORMAL,
+      ease: easeOutExpo,
+    },
   },
 };
 
-/** Container Stagger */
+/** Container animations for staggering children */
 export const staggerContainer: Variants = {
-  hidden: {},
+  hidden: { opacity: 0 },
   show: {
-    transition: { staggerChildren: 0.3 },
+    opacity: 1,
+    transition: {
+      duration: ANIMATION_DURATION.FAST,
+      when: "beforeChildren",
+      staggerChildren: 0.2,
+    },
   },
 };
 
-/** Special Section Animations */
+/** Scale animations */
+export const scaleIn: Variants = {
+  hidden: { opacity: 0, scale: 0.8 },
+  show: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: ANIMATION_DURATION.NORMAL,
+      ease: easeOutExpo,
+    },
+  },
+};
+
+/** Slide animations */
+export const slideInFromBottom: Variants = {
+  hidden: { opacity: 0, y: 100 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: ANIMATION_DURATION.SLOW,
+      ease: easeOutExpo,
+    },
+  },
+};
+
+/** Portfolio specific animations */
 export const portfolioLeft: Variants = {
   hidden: { opacity: 0, x: -80 },
   show: {
     opacity: 1,
     x: 0,
-    transition: { duration: 0.5, ease: easeOutExpo },
+    transition: {
+      duration: ANIMATION_DURATION.SLOW,
+      ease: easeOutExpo,
+    },
   },
 };
 
@@ -72,61 +127,108 @@ export const portfolioRight: Variants = {
   show: {
     opacity: 1,
     x: 0,
-    transition: { duration: 0.5, ease: easeOutExpo },
+    transition: {
+      duration: ANIMATION_DURATION.SLOW,
+      ease: easeOutExpo,
+    },
   },
 };
 
-export const weddingImage: Variants = {
-  hidden: { opacity: 0, x: -60 },
-  show: (i = 0) => ({
+/** Button hover animations */
+export const buttonHover = {
+  scale: 1.05,
+  transition: { duration: ANIMATION_DURATION.FAST },
+};
+
+export const buttonTap = {
+  scale: 0.95,
+  transition: { duration: ANIMATION_DURATION.FAST },
+};
+
+/** Hero specific animations */
+export const heroBox: Variants = {
+  hidden: { opacity: 0, y: 50 },
+  show: {
     opacity: 1,
+    y: 0,
+    transition: {
+      duration: ANIMATION_DURATION.NORMAL,
+      ease: easeOutExpo,
+      when: "beforeChildren",
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+/** Testimonial animations */
+export const testimonialSlide: Variants = {
+  enter: (direction: number) => ({
+    x: direction > 0 ? 300 : -300,
+    opacity: 0,
+  }),
+  center: {
+    zIndex: 1,
     x: 0,
-    transition: { duration: 0.5, delay: i * 0.3, ease: easeOutExpo },
+    opacity: 1,
+  },
+  exit: (direction: number) => ({
+    zIndex: 0,
+    x: direction < 0 ? 300 : -300,
+    opacity: 0,
   }),
 };
 
-export const weddingText: Variants = {
-  hidden: { opacity: 0, x: 60 },
-  show: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.5, ease: easeOutExpo },
+/** Loading animations */
+export const loadingSpinner: Variants = {
+  start: {
+    rotate: 0,
+  },
+  end: {
+    rotate: 360,
+    transition: {
+      duration: 1,
+      repeat: Infinity,
+      ease: "linear",
+    },
   },
 };
 
-export const testimonialSlide: Variants = {
-  hidden: { x: 50, opacity: 0 },
-  show: {
-    x: 0,
-    opacity: 1,
-    transition: { duration: 0.4, ease: easeOutExpo },
-  },
-};
-
+/** Contact Section specific animations */
 export const cardPop: Variants = {
-  hidden: { opacity: 0, scale: 0.8 },
+  hidden: { opacity: 0, scale: 0.8, y: 20 },
   show: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.4, ease: easeOutExpo },
+    y: 0,
+    transition: {
+      duration: ANIMATION_DURATION.NORMAL,
+      ease: easeOutExpo,
+    },
   },
 };
 
-/** Flawless Moment (text from right, button from bottom) */
+/** Flawless Moment specific animations */
 export const flawlessText: Variants = {
-  hidden: { opacity: 0, x: 80 },
+  hidden: { opacity: 0, y: 30 },
   show: {
     opacity: 1,
-    x: 0,
-    transition: { duration: 0.6, ease: easeOutExpo },
+    y: 0,
+    transition: {
+      duration: ANIMATION_DURATION.SLOW,
+      ease: easeOutExpo,
+    },
   },
 };
 
 export const flawlessButton: Variants = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, scale: 0.9 },
   show: {
     opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: easeOutExpo, delay: 0.2 },
+    scale: 1,
+    transition: {
+      duration: ANIMATION_DURATION.NORMAL,
+      ease: easeOutExpo,
+      delay: 0.3,
+    },
   },
 };

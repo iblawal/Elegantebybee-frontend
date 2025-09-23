@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import { fadeInCenter, fadeInLeft } from "@/lib/animations";
 
 type HeroProps = {
@@ -13,27 +13,6 @@ type HeroProps = {
   children?: React.ReactNode;
 };
 
-// Parent box animation
-const boxVariant: Variants = {
-  hidden: { opacity: 0, y: 50 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.4,
-      ease: "easeOut",
-      when: "beforeChildren",
-      staggerChildren: 0.4,
-    },
-  },
-};
-
-// Each child element animation
-const item: Variants = {
-  hidden: { opacity: 0, x: -50 },
-  show: { opacity: 1, x: 0, transition: { duration: 0.4, ease: "easeOut" } },
-};
-
 export default function Hero({
   title,
   subtitle,
@@ -42,14 +21,13 @@ export default function Hero({
   bgImage,
   children,
 }: HeroProps) {
+  const defaultBg = bgImage || '/home-hero.jpg';
+
   return (
+
     <section
-      className="relative h-[80vh] flex items-center justify-center text-center"
-      style={{
-        backgroundImage: bgImage ? `url(${bgImage})` : "url('/default-hero.jpg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
+      className="hero-section relative h-[80vh] flex items-center justify-center text-center"
+      style={{ '--hero-bg': `url(${defaultBg})` } as React.CSSProperties & { '--hero-bg': string }}
     >
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/40 z-0" />

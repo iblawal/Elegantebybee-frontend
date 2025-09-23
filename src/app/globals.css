@@ -3,3 +3,10 @@
 @import 'tailwindcss/utilities';
 
 /* import custom component classes */
+
+/* Hero component styles */
+.hero-section {
+  background-image: var(--hero-bg, url('/home-hero.jpg'));
+  background-size: cover;
+  background-position: center;
+}

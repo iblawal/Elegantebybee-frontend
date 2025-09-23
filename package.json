@@ -1,16 +1,19 @@
 {
-  "name": "my-app",
-  "version": "0.1.0",
+  "name": "elegante-bee-services",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build --no-lint",
+    "build": "next lint && next build",
     "build:vercel": "next build",
-    "build:export": "next build && next export",
+    "build:export": "next lint && next build && next export",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
     "framer-motion": "^12.23.12",
     "lucide-react": "^0.542.0",
     "next": "15.5.0",
@@ -18,7 +21,8 @@
     "react-dom": "19.1.0",
     "react-icons": "^5.5.0",
     "react-player": "^3.3.2",
-    "swiper": "^11.2.10"
+    "swiper": "^11.2.10",
+    "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
