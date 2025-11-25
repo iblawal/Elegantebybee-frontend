@@ -13,6 +13,7 @@ import {
   fadeInCenter,
   staggerContainer,
 } from "@/lib/animations";
+import { image } from "framer-motion/client";
 
 export default function Home() {
   // Testimonials
@@ -48,7 +49,7 @@ export default function Home() {
 
   return (
     <>
-      {/* Hero Section */}
+      { /* Hero Section */ }
       <Hero
         title="Elegance Meets Experience"
         subtitle="Your go-to for unforgettable events, style, and moments that matter."
@@ -79,7 +80,7 @@ export default function Home() {
           </motion.p>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {/* Left Card */}
+            {}
             <motion.div
               variants={fadeInLeft}
               className="bg-brand-gold text-black rounded-lg shadow hover:bg-black hover:text-brand-gold hover:scale-105 transition-all"
@@ -102,7 +103,7 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* Center Card */}
+            {}
             <motion.div
               variants={fadeInCenter}
               className="bg-brand-gold text-black rounded-lg shadow hover:bg-black hover:text-brand-gold hover:scale-105 transition-all"
@@ -122,7 +123,7 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* Right Card */}
+            {}
             <motion.div
               variants={fadeInRight}
               className="bg-brand-gold text-black rounded-lg shadow hover:bg-black hover:text-brand-gold hover:scale-105 transition-all"
@@ -280,11 +281,11 @@ export default function Home() {
           <motion.div variants={fadeInRight}>
             <h2 className="text-3xl font-bold mb-4">Who We Are</h2>
             <p>
-              At <strong>ELEGANTE BEE SERVICES</strong>, "We don&apos;t just
-              design, we architect experiences"
+              At <strong>ELEGANTE BEE SERVICES</strong>, We don&apos;t just
+              design, we architect experiences.
             </p>
             <p className="italic mt-2">
-              &quot;We believe elegance is a language...&quot;
+              &quot;We believe elegance is a language.&quot;
             </p>
             <Link
               href="/about"
@@ -366,7 +367,22 @@ export default function Home() {
               Elegance begins with vision, and our founder is the heart of it
               all.
             </p>
-            <h5 className="mt-4 font-bold">Mrs Bukola Zubair Lawal</h5>
+            <h4 className="mt-4 font-bold">Mrs Bukola Zubair Lawal</h4>
+            <h5 className="italic">Founder & CEO, Elegante Bee Services</h5>
+            <p className="mt-3 text-black">
+              a woman who truly believes that elegance is not
+              just a look, it is a lifestyle. Her love for beautiful experiences and
+              well-crafted moments is at the center of everything she does.  
+              <br /><br />
+              With a calm spirit, a creative mind, and a heart that pays attention to even
+              the smallest details, she brings life into every event. Her passion for
+              excellence shows in the way she plans, organizes, and adds that touch of
+              class that makes each celebration stand out.  
+              <br /><br />
+              For her, event planning is more than work, it is a calling. And through
+              ELEGANTE BEE, she continues to pour her dedication into making every event
+              flourish, leaving lasting memories for everyone who walks through the doors.
+            </p>
           </motion.div>
           <motion.div variants={fadeInRight} className="text-center">
             <Image

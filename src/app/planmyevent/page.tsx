@@ -1,11 +1,8 @@
 "use client";
 
-
 export default function PlanMyEventPage() {
   return (
     <>
-  
-
       {/* Hero Section */}
       <section className="relative bg-black text-white py-20 mt-20 text-center">
         <div className="container mx-auto px-6">

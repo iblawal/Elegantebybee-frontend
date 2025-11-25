@@ -1,11 +1,8 @@
-// app/media/page.tsx
 "use client";
 
 import Hero from "@/components/Hero";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import ReactPlayer from "react-player";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -20,24 +17,22 @@ export default function MediaPage() {
     src: "/placeholder.jpg",
   }));
 
-  // Video items (replace with real URLs)
+  
   const videoItems = [
-    { id: 1, title: "Wedding Highlights", src: "https://www.youtube.com/watch?v=ysz5S6PUM-U" },
-    { id: 2, title: "Birthday Event", src: "https://vimeo.com/76979871" },
-    { id: 3, title: "Corporate Party", src: "/sample-video.mp4" }, // Example local file
-    { id: 4, title: "Engagement Event", src: "https://www.youtube.com/watch?v=jNQXAC9IVRw" },
-    { id: 5, title: "Concert Night", src: "https://vimeo.com/22439234" },
+    { id: 1, title: "Wedding Highlights", src: "/wedding.mp4" },
+    { id: 2, title: "Birthday Event", src: "/birthday.mp4" },
+    { id: 3, title: "Corporate Party", src: "/corporate.mp4" },
+    { id: 4, title: "Engagement Event", src: "/engagement.mp4" },
+    { id: 5, title: "Cultural Event", src: "/video/cultural.mp4" },
   ];
 
   return (
     <div className="flex flex-col min-h-screen">
-
-
       {/* Hero Section */}
       <Hero
         title="Gallery"
         subtitle="Explore our latest media updates and insights."
-        bgImage="/images/media-hero.jpg" // ✅ replace with your own image
+        bgImage="/gallary-hero.jpg"
       />
 
       {/* Gallery Section */}
@@ -70,7 +65,9 @@ export default function MediaPage() {
                     className="h-64 w-full object-cover transition-transform group-hover:scale-105"
                   />
                   <div className="absolute inset-0 flex flex-col justify-end bg-white/80 p-4">
-                    <h5 className="text-lg font-bold text-gray-900">{item.title}</h5>
+                    <h5 className="text-lg font-bold text-gray-900">
+                      {item.title}
+                    </h5>
                     <span className="text-sm text-gray-700">{item.type}</span>
                   </div>
                 </div>
@@ -104,14 +101,20 @@ export default function MediaPage() {
             {videoItems.map((item) => (
               <SwiperSlide key={item.id}>
                 <div className="overflow-hidden rounded-xl bg-black shadow-md">
-                  <ReactPlayer
-                    url={item.src}
-                    width="100%"
-                    height="240px"
+                  {}
+                  <video
                     controls
-                  />
+                    width="100%"
+                    height="240"
+                    className="w-full h-[240px]"
+                  >
+                    <source src={item.src} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
                   <div className="p-4">
-                    <h5 className="text-lg font-bold text-gray-900">{item.title}</h5>
+                    <h5 className="text-lg font-bold text-gray-900">
+                      {item.title}
+                    </h5>
                   </div>
                 </div>
               </SwiperSlide>
@@ -123,20 +126,19 @@ export default function MediaPage() {
       {/* Call-to-Action */}
       <section
         className="bg-cover bg-center px-6 py-24 text-center"
-        style={{ backgroundImage: "url('/images/media-cta.jpg')" }} // ✅ replace with real image
+        style={{ backgroundImage: "url('/images/media-cta.jpg')" }}
       >
-        <h2 className="mb-2 text-4xl font-bold text-yellow-600">
+        <h2 className="mb-2 text-4xl font-bold text-brand-gold">
           Let&apos;s Make This Moment
         </h2>
-        <h3 className="text-2xl font-light text-yellow-600">Flawless</h3>
+        <h3 className="text-2xl font-light text-brand-gold">Flawless</h3>
         <Link
           href="/request-quote"
-          className="mt-6 inline-block rounded-lg bg-yellow-600 px-6 py-3 font-semibold text-white transition hover:bg-yellow-700"
+          className="mt-6 inline-block rounded-lg bg-brand-gold  px-6 py-3 font-semibold text-black transition hover:bg-black hover:text-brand-gold  hover:shadow-lg"
         >
           Send Request
         </Link>
       </section>
-
     </div>
   );
 }

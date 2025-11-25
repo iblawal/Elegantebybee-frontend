@@ -1,5 +1,6 @@
 
 import Hero from "@/components/Hero";
+import Image from "next/image";
 
 
 export default function About() {
@@ -11,16 +12,22 @@ export default function About() {
       <Hero
         title="About Us"
         subtitle="Crafting unforgettable experiences with elegance, creativity, and precision."
-        bgImage="/" 
+        bgImage="/about-hero.jpg" 
       />
 
       {/* About Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Image Placeholder */}
+            {}
             <div className="bg-gray-200 rounded-2xl h-96 shadow-lg flex items-center justify-center">
-              <span className="text-gray-500">Image Placeholder</span>
+             <Image
+               src="/about-us-page.jpg"   
+               alt="About us"
+               width={600}
+               height={600}
+               className="w-full h-full object-cover"
+              />
             </div>
 
             {/* About Content */}
@@ -29,13 +36,13 @@ export default function About() {
                 More About Elegante Bee
               </h2>
               <p className="mb-4 text-brand-dark">
-                ELEGANTE BEE SERVICES is more than a brand—it’s a lifestyle.
+                ELEGANTE BEE SERVICES is more than a brand, it’s a lifestyle.
                 We are driven by the belief that events should not only be seen,
                 but felt.
               </p>
               <p className="mb-4">
                 With years of experience crafting luxurious weddings, corporate
-                events, fashion activations, and influencer experiences, we’ve
+                events, birthday celebration, fashion activations, and influencer experiences, we’ve
                 mastered the art of detail and emotion.
               </p>
               <p className="mb-4">
@@ -72,7 +79,7 @@ export default function About() {
             <p className="text-brand-dark">
               We infuse our events with{" "}
               <strong>visual harmony, emotional depth, and lifestyle
-              relevance</strong>, ensuring that guests don’t just attend—
+              relevance</strong>, ensuring that guests don’t just attend,
               they feel.
             </p>
           </div>

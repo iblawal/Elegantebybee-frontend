@@ -3,9 +3,10 @@ import { useEffect, useState } from "react";
 
 export default function CookieConsent() {
   const [showBanner, setShowBanner] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Check if user already made a choice
+    setMounted(true); 
     const consent = localStorage.getItem("cookie-consent");
     if (!consent) {
       setShowBanner(true);
@@ -17,6 +18,7 @@ export default function CookieConsent() {
     setShowBanner(false);
   };
 
+  if (!mounted) return null;
   if (!showBanner) return null;
 
   return (

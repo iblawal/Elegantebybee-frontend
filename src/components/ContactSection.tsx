@@ -1,5 +1,4 @@
 "use client";
-
 import { motion } from "framer-motion";
 import { fadeInUp, cardPop, staggerContainer } from "@/lib/animations";
 
@@ -47,7 +46,7 @@ export default function ContactSection({ children }: ContactSectionProps) {
             variants={cardPop}
           >
             <h3 className="text-xl font-semibold mb-2">Email Us</h3>
-            <p>info@yourbrand.com</p>
+            <p>elegantbybee@gmail.com</p>
           </motion.div>
 
           <motion.div
@@ -55,7 +54,8 @@ export default function ContactSection({ children }: ContactSectionProps) {
             variants={cardPop}
           >
             <h3 className="text-xl font-semibold mb-2">Call Us</h3>
-            <p>+234 801 234 5678</p>
+            <p>+1 240 604-0025</p>
+            <p></p>
           </motion.div>
 
           <motion.div
@@ -63,11 +63,11 @@ export default function ContactSection({ children }: ContactSectionProps) {
             variants={cardPop}
           >
             <h3 className="text-xl font-semibold mb-2">Visit Us</h3>
-            <p>Lagos, Nigeria</p>
+            <p>3600 Leonardtown Rd #203, Waldorf, MD 20601, USA.</p>
           </motion.div>
         </div>
 
-        {/* Extra children injected */}
+        {/* Extra children  */}
         {children && <div className="mt-10 w-full">{children}</div>}
       </motion.div>
     </section>

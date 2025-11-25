@@ -1,24 +1,35 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import Hero from "@/components/Hero";
+import Link from "next/link";
 
 export default function RequestQuotePage() {
   const [region, setRegion] = useState<"US" | "NG" | null>(null);
   const [showModal, setShowModal] = useState(false);
 
-  // Nigeria contact info
-  const nigeriaPhone = "080-123-4567"; 
-  const nigeriaEmail = "info@client.com"; 
+  const nigeriaPhone = "09167796186"; 
+  const nigeriaEmail = "elegantebybee@gmail.com"; 
 
-  // Show modal if no region selected
   useEffect(() => {
-    if (!region) setShowModal(true);
-  }, [region]);
+    const saved = localStorage.getItem("region");
+    if (saved === "US" || saved === "NG") {
+      setRegion(saved);
+      setShowModal(false);
+    } else {
+      setShowModal(true);
+    }
+  }, []);
+
+  
+  const handleRegionSelect = (selectedRegion: "US" | "NG") => {
+    setRegion(selectedRegion);
+    localStorage.setItem("region", selectedRegion);
+    setShowModal(false);
+  };
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Region Selection Popup */}
+      {}
       {showModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
           <div className="w-96 rounded-2xl bg-white p-8 text-center shadow-lg">
@@ -26,8 +37,8 @@ export default function RequestQuotePage() {
             <select
               className="w-full rounded-lg border px-4 py-3"
               onChange={(e) => {
-                setRegion(e.target.value as "US" | "NG");
-                setShowModal(false);
+                const value = e.target.value as "US" | "NG";
+                if (value) handleRegionSelect(value);
               }}
               defaultValue=""
             >
@@ -41,11 +52,11 @@ export default function RequestQuotePage() {
         </div>
       )}
 
-      {/* Hero Section */}
+      {}
       <Hero
         title="Request a Quote"
-        subtitle="Get the best packages tailored for your event in the US or Nigeria."
-        bgImage="/images/request-quote-hero.jpg" 
+        subtitle="Get the best packages tailored for your event in the US and Nigeria."
+        bgImage="/request-quote-hero.jpg" 
       />
 
       <main className="mx-auto max-w-6xl flex-1 px-6 py-16">
@@ -56,7 +67,7 @@ export default function RequestQuotePage() {
             <select
               className="rounded-lg border px-3 py-2"
               value={region}
-              onChange={(e) => setRegion(e.target.value as "US" | "NG")}
+              onChange={(e) => handleRegionSelect(e.target.value as "US" | "NG")}
             >
               <option value="US">United States</option>
               <option value="NG">Nigeria</option>
@@ -66,13 +77,12 @@ export default function RequestQuotePage() {
 
         {/* Quote Form */}
         <div className="rounded-2xl bg-white p-8 shadow-lg">
-          <form className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <div>
               <label className="mb-2 block font-medium">First Name</label>
               <input
                 type="text"
                 className="w-full rounded-lg border px-4 py-3"
-                required
               />
             </div>
             <div>
@@ -80,7 +90,6 @@ export default function RequestQuotePage() {
               <input
                 type="text"
                 className="w-full rounded-lg border px-4 py-3"
-                required
               />
             </div>
             <div>
@@ -88,7 +97,6 @@ export default function RequestQuotePage() {
               <input
                 type="tel"
                 className="w-full rounded-lg border px-4 py-3"
-                required
               />
             </div>
             <div>
@@ -96,7 +104,6 @@ export default function RequestQuotePage() {
               <input
                 type="email"
                 className="w-full rounded-lg border px-4 py-3"
-                required
               />
             </div>
             <div className="col-span-2">
@@ -108,26 +115,26 @@ export default function RequestQuotePage() {
             </div>
             <div className="col-span-2 mt-6 text-center">
               <button
-                type="submit"
-                className="rounded-xl bg-brand-gold px-8 py-3 font-semibold text-black transition hover:bg-yellow-500"
+                type="button"
+                className="rounded-xl bg-brand-gold px-8 py-3 font-semibold text-black transition hover:bg-black hover:text-brand-gold"
               >
                 Submit Request
               </button>
             </div>
-          </form>
+          </div>
         </div>
 
-        {/* US Price Section */}
+        {}
         {region === "US" && (
           <section
             className="relative mt-12 rounded-2xl overflow-hidden"
             style={{
-              backgroundImage: "url('/images/us-pricing-bg.jpg')", 
+              backgroundImage: "url('/request-quote-price-list-bg.jpg')", 
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
           >
-            <div className="absolute inset-0 bg-black/40" /> {/* overlay */}
+            <div className="absolute inset-0 bg-black/40" /> {}
 
             <div className="relative z-10 p-8">
               <h2 className="mb-6 text-center text-3xl font-bold text-white">
@@ -206,12 +213,12 @@ export default function RequestQuotePage() {
           <section
             className="relative mt-12 rounded-2xl overflow-hidden"
             style={{
-              backgroundImage: "url('/images/ng-pricing-bg.jpg')", // ✅ replace with your image
+              backgroundImage: "url('/request-quote-price-list-bg.jpg')", 
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
           >
-            <div className="absolute inset-0 bg-black/40" /> {/* overlay */}
+            <div className="absolute inset-0 bg-black/40" /> {}
 
             <div className="relative z-10 p-8">
               <h2 className="mb-6 text-center text-3xl font-bold text-white">
@@ -245,12 +252,31 @@ export default function RequestQuotePage() {
           </section>
         )}
 
-        {/* Payment Button */}
-        {region && (
+        {/* Payment Button -  for US */}
+        {region === "US" && (
           <div className="mt-12 text-center">
-            <button className="rounded-xl bg-brand-gold px-10 py-4 text-lg font-bold text-black transition hover:bg-yellow-500">
-              Make Payment
-            </button>
+            <Link href="/payment-page">
+              <button className="rounded-xl bg-brand-gold px-10 py-4 text-lg font-bold text-black transition hover:bg-black hover:text-brand-gold">
+                Make Payment
+              </button>
+            </Link>
+          </div>
+        )}
+
+        {/* Contact Message for Nigeria */}
+        {region === "NG" && (
+          <div className="mt-12 text-center p-6 bg-blue-50 rounded-2xl">
+            <p className="text-lg font-medium text-gray-800">
+              Please contact us directly for payment arrangements in Nigeria
+            </p>
+            <div className="mt-4 flex items-center justify-center gap-6">
+              <a href={`tel:${nigeriaPhone}`} className="text-brand-gold font-semibold hover:underline">
+                 {nigeriaPhone}
+              </a>
+              <a href={`mailto:${nigeriaEmail}`} className="text-brand-gold font-semibold hover:underline">
+                {nigeriaEmail}
+              </a>
+            </div>
           </div>
         )}
       </main>

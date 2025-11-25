@@ -23,9 +23,9 @@ export default function EventShowcase() {
       link: "/events/wedding",
     },
     {
-      title: "Corporate Party",
+      title: "Weddinng Anniversary",
       image: "https://via.placeholder.com/600x400",
-      link: "/events/corporate",
+      link: "/events/anniversary",
     },
     {
       title: "Luxury Birthday",
@@ -34,7 +34,7 @@ export default function EventShowcase() {
     },
     {
       title: "Cultural Event",
-      image: "https://via.placeholder.com/600x400",
+      image: "/cultural-deco.jpg",
       link: "/events/cultural",
     },
   ];
@@ -68,7 +68,7 @@ export default function EventShowcase() {
                 <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white z-10">
                   <h3 className="text-xl font-bold">{event.title}</h3>
                   <Link
-                    href={event.link}
+                    href="/media"
                     className="mt-2 text-brand-gold font-semibold hover:underline"
                   >
                     View Detail
@@ -79,7 +79,7 @@ export default function EventShowcase() {
           })}
         </div>
 
-        {/* Right side: Text + Button */}
+        {}
         <motion.div
           className="flex flex-col justify-center"
           initial="hidden"
@@ -87,7 +87,7 @@ export default function EventShowcase() {
           viewport={{ once: true, amount: 0.2 }}
           variants={fadeInRight}
         >
-          <h4 className="text-lg font-semibold text-gray-600">Wedding Theme</h4>
+          <h4 className="text-lg font-semibold text-gray-600">Events</h4>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Decoration Style
           </h2>

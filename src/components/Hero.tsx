@@ -13,7 +13,6 @@ type HeroProps = {
   children?: React.ReactNode;
 };
 
-// Parent box animation
 const boxVariant: Variants = {
   hidden: { opacity: 0, y: 50 },
   show: {
@@ -58,8 +57,7 @@ export default function Hero({
       <motion.div
         variants={fadeInLeft}
         initial="hidden"
-        animate="show" // 👈 changed to animate (so it always runs)
-        // whileInView="show" // ❌ remove for now to debug visibility
+        animate="show" 
         className="relative z-10 bg-white/70 backdrop-blur-md p-8 md:p-12 rounded-2xl w-[90%] max-w-4xl mx-auto shadow-xl"
       >
         {title && (
@@ -84,7 +82,7 @@ export default function Hero({
           <motion.div variants={fadeInCenter}>
             <Link
               href={buttonLink}
-              className="inline-block bg-[#bfa14d] text-black px-6 py-3 rounded-lg font-semibold hover:bg-black hover:text-white transition-colors duration-300 mb-6"
+              className="inline-block bg-[#bfa14d] text-black px-6 py-3 rounded-lg font-semibold hover:bg-black hover:text-brand-gold transition-colors duration-300 mb-6"
             >
               {buttonText}
             </Link>

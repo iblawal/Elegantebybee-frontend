@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-
 import Navbar from "@/components/Navbar";
 import FlawlessMoment from "@/components/FlawlessMoment";
 import ContactSection from "@/components/ContactSection";
@@ -15,7 +14,7 @@ export const metadata: Metadata = {
   description: "Your premier event planning company in United States and Nigeria",
 };
 
-// ✅ Correct way for mobile scaling
+// mobile scaling
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,

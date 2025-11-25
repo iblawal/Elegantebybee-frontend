@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -20,6 +19,7 @@ export default function Navbar() {
           alt="Elegant By Bee Logo"
           width={60}
           height={60}
+          style={{ height: 'auto' }}
           priority
         />
         <span

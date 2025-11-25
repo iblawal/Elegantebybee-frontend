@@ -4,13 +4,13 @@ import Hero from "@/components/Hero";
 import Image from "next/image";
 import { motion, Variants } from "framer-motion";
 
-// ✅ Variants (clean + TypeScript safe)
+// Animation Variants)
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 50 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: "easeOut" }, // ✅ TS safe
+    transition: { duration: 0.8, ease: "easeOut" }, 
   },
 };
 
@@ -28,7 +28,7 @@ export default function ServicesPage() {
       <Hero
         title="Our Services"
         subtitle="Discover the elegance, creativity, and precision that define every experience we create."
-        bgImage="/images/services-hero.jpg"
+        bgImage="/services-hero.jpg"
       />
 
       {/* What We Do */}
@@ -70,28 +70,33 @@ export default function ServicesPage() {
         <ServiceItem
           title="Event Planning & Coordination"
           text="We handle every detail from concept to execution, ensuring your event runs smoothly and reflects your unique style and vision."
-          imageSrc="/evvent-planning-coordination.jpg"
+          imageSrc="/event-planning-cordination.jpg"
           imageAlt="Professional event planning and coordination"
         />
         <ServiceItem
+          title="Birthday Shoutout"
+          text="Celebrate your special day in style with a personalized luxury birthday shoutout that makes you feel seen, valued, and celebrated."
+          imageSrc="/birthday-shoutouts.jpg"
+          imageAlt="Luxury birthday shoutout"
+        />
+         <ServiceItem
+          title="Fashion Influencing"
+          text="Step into the world of trends with my creative fashion influencing-bringing you style inspiration, brand collaborations, and bold looks that stand out."
+          imageSrc="/fashion-influencing.jpg"
+          imageAlt=""
+        />
+        <ServiceItem
           title="Event Venue Scouting"
-          text="We help you find the perfect venue that fits your style, vision, and guest count, whether it's an intimate rooftop or a grand ballroom."
-          imageSrc="/"
+          text=" We don't just plan events, we help you find the perfect venue that fits your style, vision, and guest count, whether it's an intimate rooftop or a grand ballroom."
+          imageSrc="/event-venue.jpg"
           imageAlt="Beautiful event venues and locations"
           reverse
         />
         <ServiceItem
           title="Decoration & Styling"
           text="We transform spaces with elegant floral arrangements, luxurious tablescapes, and customized decor that speaks your vibe and event theme."
-          imageSrc="/scouting.jpg"
+          imageSrc="/decoration-styling.jpg"
           imageAlt="Elegant event decoration and styling"
-        />
-        <ServiceItem
-          title="Catering & Menu Design"
-          text="We curate exquisite menus with gourmet catering options that delight your guests and elevate your event experience."
-          imageSrc="/catering-menu.jpg"
-          imageAlt="Gourmet catering and menu design"
-          reverse
         />
         <ServiceItem
           title="Entertainment & Activities"
@@ -102,7 +107,7 @@ export default function ServicesPage() {
         <ServiceItem
           title="Photography & Videography"
           text="We capture every moment with professional photography and videography, ensuring your memories are preserved beautifully."
-          imageSrc="/"
+          imageSrc="/photography-videography.jpg"
           imageAlt="Professional event photography and videography"
         />
         <ServiceItem
@@ -116,7 +121,7 @@ export default function ServicesPage() {
   );
 }
 
-/* ✅ Reusable Service Item with Animation */
+
 function ServiceItem({
   title,
   text,

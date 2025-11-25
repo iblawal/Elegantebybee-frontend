@@ -1,6 +1,5 @@
 import { Variants, Easing } from "framer-motion";
 
-/** Default cubic-bezier easing */
 const easeOutExpo: Easing = [0.25, 0.1, 0.25, 1];
 
 /** Generic Fades */
@@ -112,7 +111,7 @@ export const cardPop: Variants = {
   },
 };
 
-/** Flawless Moment (text from right, button from bottom) */
+
 export const flawlessText: Variants = {
   hidden: { opacity: 0, x: 80 },
   show: {

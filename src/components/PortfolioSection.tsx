@@ -1,8 +1,7 @@
 "use client";
-
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link"; // ✅ Correct import
+import Link from "next/link"; 
 import { motion } from "framer-motion";
 
 // Animation variants
@@ -25,8 +24,8 @@ export default function PortfolioSection() {
   const images: PortfolioImage[] = [
     { src: "https://via.placeholder.com/600x400", alt: "Portfolio Image 1" },
     { src: "https://via.placeholder.com/600x400", alt: "Portfolio Image 2" },
-    { src: "https://via.placeholder.com/600x400", alt: "Portfolio Image 3" },
-    { src: "https://via.placeholder.com/600x400", alt: "Portfolio Image 4" },
+    { src: "/portfolio-3.jpg", alt: "Portfolio Image 3" },
+    { src: "/portfolio-4.jpg", alt: "Portfolio Image 4" },
   ];
 
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
@@ -83,7 +82,7 @@ export default function PortfolioSection() {
           })}
         </div>
 
-        {/* View Gallery Button */}
+        {}
         <Link
           href="/gallery"
           className="inline-block bg-brand-gold text-black px-6 py-3 rounded-lg font-semibold shadow hover:bg-black hover:text-brand-gold transition"
@@ -92,7 +91,7 @@ export default function PortfolioSection() {
         </Link>
       </div>
 
-      {/* Lightbox */}
+      {}
       {selectedIndex !== null && currentImage && (
         <div
           className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
@@ -114,7 +113,7 @@ export default function PortfolioSection() {
               </div>
             </div>
 
-            {/* Close */}
+            {}
             <button
               type="button"
               onClick={closeLightbox}
@@ -124,7 +123,7 @@ export default function PortfolioSection() {
               ✕
             </button>
 
-            {/* Prev */}
+            {}
             {selectedIndex > 0 && (
               <button
                 type="button"
@@ -136,7 +135,7 @@ export default function PortfolioSection() {
               </button>
             )}
 
-            {/* Next */}
+            {}
             {selectedIndex < images.length - 1 && (
               <button
                 type="button"

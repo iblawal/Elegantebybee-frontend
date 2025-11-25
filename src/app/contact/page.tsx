@@ -5,7 +5,7 @@ export default function Contact() {
       <section
         className="relative h-[50vh] flex items-center justify-center text-center text-white"
         style={{
-          backgroundImage: "url('/images/contact-hero.jpg')",
+          backgroundImage: "url('/contact-hero.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -49,7 +49,7 @@ export default function Contact() {
                 <input
                   type="text"
                   placeholder="First Name"
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-yellow-600 focus:outline-none"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-brand-gold focus:outline-none"
                 />
               </div>
               <div>
@@ -59,7 +59,7 @@ export default function Contact() {
                 <input
                   type="text"
                   placeholder="Last Name"
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-yellow-600 focus:outline-none"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-brand-gold  focus:outline-none"
                 />
               </div>
             </div>
@@ -72,7 +72,7 @@ export default function Contact() {
               <input
                 type="email"
                 placeholder="Email Address"
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-yellow-600 focus:outline-none"
+                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-brand-gold  focus:outline-none"
               />
             </div>
 
@@ -84,7 +84,7 @@ export default function Contact() {
               <input
                 type="text"
                 placeholder="Subject"
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-yellow-600 focus:outline-none"
+                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-brand-gold  focus:outline-none"
               />
             </div>
 
@@ -96,14 +96,14 @@ export default function Contact() {
               <textarea
                 rows={5}
                 placeholder="Your Message"
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-yellow-600 focus:outline-none"
+                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:to-brand-gold focus:outline-none"
               ></textarea>
             </div>
 
             {/* Submit */}
             <button
               type="submit"
-              className="bg-yellow-600 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-black hover:text-yellow-600 transition w-full md:w-auto"
+              className="bg-brand-gold text-black  font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-black hover:text-brand-gold transition w-full md:w-auto"
             >
               Submit Form
             </button>
