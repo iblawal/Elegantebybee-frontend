@@ -1,5 +1,4 @@
 "use client";
-
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
 import { fadeInCenter, fadeInLeft } from "@/lib/animations";

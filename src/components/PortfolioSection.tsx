@@ -22,8 +22,6 @@ type PortfolioImage = {
 
 export default function PortfolioSection() {
   const images: PortfolioImage[] = [
-    { src: "https://via.placeholder.com/600x400", alt: "Portfolio Image 1" },
-    { src: "https://via.placeholder.com/600x400", alt: "Portfolio Image 2" },
     { src: "/portfolio-3.jpg", alt: "Portfolio Image 3" },
     { src: "/portfolio-4.jpg", alt: "Portfolio Image 4" },
   ];

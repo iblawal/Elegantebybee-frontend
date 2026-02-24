@@ -1,220 +1,148 @@
-import Link from "next/link"; 
+"use client";
 import Hero from "@/components/Hero";
-import { ArrowRight, Calendar, CheckCircle, Clock, DollarSign, FileText, Sparkles, Users } from "lucide-react";
+import Link from "next/link";
+import { ArrowUpRight, Calendar, CheckCircle, Clock, DollarSign, FileText, Sparkles, Users } from "lucide-react";
+import { motion, Variants } from "framer-motion";
+
+const G = "#C9A84C";
+const fadeUp: Variants = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } } };
+const stagger: Variants = { hidden: {}, show: { transition: { staggerChildren: 0.1 } } };
 
 export default function Proposal() {
   return (
-  <div className="min-h-screen flex flex-col">
-        <Hero 
-          title="Our Proposal" 
-          subtitle="Detailed, personalized, and designed to impress" 
-          bgImage="/creative-process-hero-bg.jpg"
-        />
-  
-  {/* Main Content */}
-  <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
-  {/* What's Included */}
-  <section className="mb-16 sm:mb-20 max-w-5xl mx-auto">
-    <div className="text-center mb-8 sm:mb-12">
-      <h2 className="text-2xl sm:text-2xl lg:text-2xl font-bold mb-4 pb-3 border-b-4 border-brand-gold  inline-block">
-        What's Included in Your Proposal
-      </h2>
-    </div>
+    <div className="min-h-screen flex flex-col" style={{ background: "#0A0A0A" }}>
+      <Hero title="Our Proposal" subtitle="Detailed, personalized, and designed to impress" bgImage="/creative-process-hero-bg.jpg" />
 
-    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-      {[
-        {
-          icon: <Sparkles className="w-6 h-6" />,
-          title: "Event Concept & Theme",
-          description: "A detailed vision of your event aesthetic, mood, and style direction tailored to your preferences"
-        },
-        {
-          icon: <Calendar className="w-6 h-6" />,
-          title: "Timeline & Milestones",
-          description: "A comprehensive planning schedule with key dates, deadlines, and milestone checkpoints"
-        },
-        {
-          icon: <Users className="w-6 h-6" />,
-          title: "Vendor Recommendations",
-          description: "Curated list of trusted vendors including caterers, florists, photographers, and entertainment"
-        },
-        {
-          icon: <DollarSign className="w-6 h-6" />,
-          title: "Budget Breakdown",
-          description: "Transparent cost estimates for all services, allocations, and payment schedules"
-        },
-        {
-          icon: <CheckCircle className="w-6 h-6" />,
-          title: "Service Packages",
-          description: "Flexible planning packages from full-service coordination to day-of execution"
-        },
-        {
-          icon: <FileText className="w-6 h-6" />,
-          title: "Detailed Scope of Work",
-          description: "Clear outline of deliverables, responsibilities, and what you can expect from our team"
-        }
-      ].map((item, idx) => (
-        <div key={idx} className="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-all border-t-4 border-brand-gold">
-          <div className="w-12 h-12 rounded-full bg-brand-gold -400 flex items-center justify-center mb-4 text-black">
-            {item.icon}
+      {/* What's Included */}
+      <motion.section className="py-24" style={{ background: "#0A0A0A" }} initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger}>
+        <div className="max-w-6xl mx-auto px-6">
+          <motion.div variants={fadeUp} className="text-center mb-14">
+            <span className="text-xs tracking-[0.5em] uppercase block mb-3" style={{ color: G }}>The Package</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-white" style={{ fontFamily: "'Playfair Display', serif" }}>What&apos;s Included in Your Proposal</h2>
+            <div className="h-[2px] w-12 mx-auto mt-4" style={{ background: G }} />
+          </motion.div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[
+              { icon: <Sparkles className="w-5 h-5" />, title: "Event Concept & Theme", desc: "A detailed vision of your event aesthetic, mood, and style direction tailored to your preferences." },
+              { icon: <Calendar className="w-5 h-5" />, title: "Timeline & Milestones", desc: "A comprehensive planning schedule with key dates, deadlines, and milestone checkpoints." },
+              { icon: <Users className="w-5 h-5" />, title: "Vendor Recommendations", desc: "Curated list of trusted vendors including caterers, florists, photographers, and entertainment." },
+              { icon: <DollarSign className="w-5 h-5" />, title: "Budget Breakdown", desc: "Transparent cost estimates for all services, allocations, and payment schedules." },
+              { icon: <CheckCircle className="w-5 h-5" />, title: "Service Packages", desc: "Flexible planning packages from full-service coordination to day-of execution." },
+              { icon: <FileText className="w-5 h-5" />, title: "Detailed Scope of Work", desc: "Clear outline of deliverables, responsibilities, and what you can expect from our team." },
+            ].map((item, i) => (
+              <motion.div key={i} variants={fadeUp} className="p-7 rounded-2xl transition-all duration-300"
+                style={{ background: "rgba(255,255,255,0.03)", border: `1px solid ${G}15`, borderTop: `2px solid ${G}` }}
+                whileHover={{ y: -5, transition: { duration: 0.3 } }}>
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-5" style={{ background: `${G}18`, color: G }}>
+                  {item.icon}
+                </div>
+                <h3 className="text-white font-bold text-lg mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>{item.title}</h3>
+                <p className="text-white/45 text-sm leading-relaxed" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "0.95rem", lineHeight: "1.85" }}>{item.desc}</p>
+              </motion.div>
+            ))}
           </div>
-          <h3 className="text-lg sm:text-xl font-bold mb-3 text-gray-900">{item.title}</h3>
-          <p className="text-sm sm:text-base text-gray-600">{item.description}</p>
         </div>
-      ))}
-    </div>
-  </section>
+      </motion.section>
 
-  {/* How It Works */}
-  <section className="mb-16 sm:mb-20 max-w-4xl mx-auto">
-    <div className="text-center mb-8 sm:mb-12">
-      <h2 className="text-2xl sm:text-2xl lg:text-2xl font-bold mb-4 pb-2 border-b-4 border-brand-gold  inline-block">
-        How the Proposal Process Works
-      </h2>
-    </div>
+      {/* How It Works */}
+      <motion.section className="py-24" style={{ background: "#080808", borderTop: `1px solid ${G}10` }} initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger}>
+        <div className="max-w-4xl mx-auto px-6">
+          <motion.div variants={fadeUp} className="text-center mb-14">
+            <span className="text-xs tracking-[0.5em] uppercase block mb-3" style={{ color: G }}>The Process</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-white" style={{ fontFamily: "'Playfair Display', serif" }}>How the Proposal Process Works</h2>
+            <div className="h-[2px] w-12 mx-auto mt-4" style={{ background: G }} />
+          </motion.div>
+          <div className="space-y-5">
+            {[
+              { step: "01", title: "Initial Consultation", desc: "We start with a discovery call to understand your vision, guest count, budget range, and event priorities." },
+              { step: "02", title: "Custom Proposal Creation", desc: "Our team crafts a personalized proposal including concept ideas, vendor recommendations, timeline, and pricing." },
+              { step: "03", title: "Review & Refinement", desc: "We walk you through the proposal, answer questions, and make adjustments based on your feedback." },
+              { step: "04", title: "Contract & Planning Begins", desc: "Once you're thrilled with the proposal, we finalize the contract and officially begin bringing your dream event to life." },
+            ].map((item, i) => (
+              <motion.div key={i} variants={fadeUp} className="flex gap-6 p-7 rounded-2xl"
+                style={{ background: "rgba(255,255,255,0.02)", border: `1px solid ${G}12` }}
+                whileHover={{ y: -3, transition: { duration: 0.3 } }}>
+                <div className="flex-shrink-0 w-14 h-14 rounded-full flex items-center justify-center font-bold text-lg" style={{ background: `${G}18`, color: G, fontFamily: "'Playfair Display', serif" }}>
+                  {item.step}
+                </div>
+                <div>
+                  <h3 className="text-white font-bold text-lg mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>{item.title}</h3>
+                  <p className="text-white/45 text-sm leading-relaxed" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "0.98rem", lineHeight: "1.85" }}>{item.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
 
-    <div className="space-y-6">
-      {[
-        {
-          step: "01",
-          title: "Initial Consultation",
-          description: "We start with a discovery call to understand your vision, guest count, budget range, and event priorities. This conversation helps us capture your unique style and needs."
-        },
-        {
-          step: "02",
-          title: "Custom Proposal Creation",
-          description: "Our team crafts a personalized proposal including concept ideas, vendor recommendations, timeline, and pricing. We typically deliver this within 5-7 business days."
-        },
-        {
-          step: "03",
-          title: "Review & Refinement",
-          description: "We walk you through the proposal, answer questions, and make adjustments based on your feedback. Your satisfaction is our priority."
-        },
-        {
-          step: "04",
-          title: "Contract & Planning Begins",
-          description: "Once you're thrilled with the proposal, we finalize the contract and officially begin bringing your dream event to life."
-        }
-      ].map((item, idx) => (
-        <div key={idx} className="flex flex-col sm:flex-row gap-4 sm:gap-6 p-6 bg-gradient-to-r from-white to-yellow-50 rounded-xl shadow-md">
-          <div className="flex-shrink-0">
-            <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-brand-gold  flex items-center justify-center">
-              <span className="text-2xl sm:text-2xl font-bold text-black">{item.step}</span>
+      {/* Why We Stand Out */}
+      <motion.section className="py-24" style={{ background: "#0A0A0A", borderTop: `1px solid ${G}10` }} initial="hidden" whileInView="show" viewport={{ once: true }} variants={stagger}>
+        <div className="max-w-4xl mx-auto px-6">
+          <motion.div variants={fadeUp} className="text-center mb-14">
+            <span className="text-xs tracking-[0.5em] uppercase block mb-3" style={{ color: G }}>Our Edge</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-white" style={{ fontFamily: "'Playfair Display', serif" }}>Why Our Proposals Stand Out</h2>
+            <div className="h-[2px] w-12 mx-auto mt-4" style={{ background: G }} />
+          </motion.div>
+          <motion.div variants={fadeUp} className="p-10 rounded-2xl" style={{ background: "rgba(255,255,255,0.03)", border: `1px solid ${G}18` }}>
+            <div className="grid sm:grid-cols-2 gap-7">
+              {[
+                { title: "Personalized, Not Templated", desc: "Every proposal is custom-crafted to reflect your unique vision and personality." },
+                { title: "Transparent Pricing", desc: "No hidden fees or surprises — just honest, detailed cost breakdowns." },
+                { title: "Flexible Options", desc: "Multiple service tiers and customizable packages to fit your needs and budget." },
+                { title: "Visual Inspiration", desc: "Mood boards and concept visuals to help you see your event come to life." },
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-4">
+                  <div className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{ background: `${G}20` }}>
+                    <CheckCircle size={14} style={{ color: G }} />
+                  </div>
+                  <div>
+                    <h3 className="text-white font-bold mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>{item.title}</h3>
+                    <p className="text-white/45 text-sm leading-relaxed" style={{ fontFamily: "'Cormorant Garamond', serif" }}>{item.desc}</p>
+                  </div>
+                </div>
+              ))}
             </div>
-          </div>
-          <div className="flex-1">
-            <h3 className="text-xl sm:text-xl font-bold mb-2 text-gray-900">{item.title}</h3>
-            <p className="text-sm sm:text-base text-gray-700 leading-relaxed">{item.description}</p>
-          </div>
+          </motion.div>
         </div>
-      ))}
-    </div>
-  </section>
+      </motion.section>
 
-  {/* Why Choose Our Proposals */}
-  <section className="mb-16 sm:mb-20 max-w-4xl mx-auto">
-    <div className="text-center mb-8 sm:mb-12">
-      <h2 className="text-2xl sm:text-3xl lg:text-3xl font-bold mb-4 pb-2 border-b-4 border-brand-gold  inline-block">
-        Why Our Proposals Stand Out
-      </h2>
-    </div>
-
-    <div className="bg-gradient-to-br from-black to-gray-900 text-white p-6 sm:p-8 lg:p-12 rounded-2xl shadow-2xl">
-      <div className="grid sm:grid-cols-2 gap-6 sm:gap-8">
-        {[
-          {
-            title: "Personalized, Not Templated",
-            description: "Every proposal is custom-crafted to reflect your unique vision and personality"
-          },
-          {
-            title: "Transparent Pricing",
-            description: "No hidden fees or surprises-just honest, detailed cost breakdowns"
-          },
-          {
-            title: "Flexible Options",
-            description: "Multiple service tiers and customizable packages to fit your needs and budget"
-          },
-          {
-            title: "Visual Inspiration",
-            description: "Mood boards and concept visuals to help you see your event come to life"
-          }
-        ].map((item, idx) => (
-          <div key={idx} className="flex items-start gap-3">
-            <CheckCircle className="w-6 h-6 text-brand-gold -400 flex-shrink-0 mt-1" />
+      {/* Turnaround */}
+      <motion.section className="py-10" style={{ background: "#080808", borderTop: `1px solid ${G}10` }} initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp}>
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 p-8 rounded-2xl" style={{ background: `${G}0A`, border: `1px solid ${G}25` }}>
+            <Clock size={40} style={{ color: G, flexShrink: 0 }} />
             <div>
-              <h3 className="text-lg font-bold mb-2">{item.title}</h3>
-              <p className="text-gray-300 text-sm sm:text-base">{item.description}</p>
+              <h3 className="text-white font-bold text-xl mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>Quick Turnaround</h3>
+              <p className="text-white/50 text-sm leading-relaxed" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1rem" }}>
+                Most proposals are delivered within <span className="font-bold" style={{ color: G }}>5–7 business days</span> after your initial consultation. Rush proposals available for urgent events.
+              </p>
             </div>
           </div>
-        ))}
-      </div>
-    </div>
-  </section>
+        </div>
+      </motion.section>
 
-  {/* Turnaround Time */}
-  <section className="mb-16 sm:mb-20 max-w-4xl mx-auto">
-    <div className="bg-yellow-50 p-6 sm:p-8 rounded-2xl border-l-4 border-brand-gold ">
-      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-        <Clock className="w-12 h-12 text-brand-gold -500 flex-shrink-0" />
-        <div>
-          <h3 className="text-xl sm:text-2xl font-bold mb-2 text-gray-900">Quick Turnaround</h3>
-          <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
-            Most proposals are delivered within <span className="font-bold text-brand-gold">5-7 business days</span> after 
-            your initial consultation. Rush proposals available for urgent events with advance notice.
+      {/* CTA */}
+      <section className="relative py-24 text-center overflow-hidden"
+        style={{ backgroundImage: "url('/creative-process-hero-bg.jpg')", backgroundSize: "cover", backgroundPosition: "center", backgroundAttachment: "fixed" }}>
+        <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.82)" }} />
+        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: `linear-gradient(90deg,transparent,${G},transparent)` }} />
+        <div className="relative z-10 max-w-2xl mx-auto px-6">
+          <span className="text-xs tracking-[0.5em] uppercase block mb-3" style={{ color: G }}>Ready?</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>Ready to Receive Your Custom Proposal?</h2>
+          <p className="text-white/55 mb-10 leading-relaxed" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem", lineHeight: "1.9" }}>
+            Let&apos;s start the conversation. Schedule your free consultation today and receive a personalized proposal that brings your vision to life.
           </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Link href="/request-quote" className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full font-bold text-sm tracking-widest uppercase transition-all duration-300 hover:gap-4" style={{ background: G, color: "#000" }}>
+              Request Your Proposal <ArrowUpRight size={15} />
+            </Link>
+            <Link href="/" className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full font-bold text-sm tracking-widest uppercase" style={{ border: `1px solid ${G}35`, color: G }}>
+              Back to Home
+            </Link>
+          </div>
         </div>
-      </div>
+        <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: `linear-gradient(90deg,transparent,${G},transparent)` }} />
+      </section>
     </div>
-  </section>
-</main>
-
-{/* Call-to-Action Section */}
-<section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-50 to-yellow-50">
-  <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="max-w-4xl mx-auto text-center">
-      <h2 className="text-2xl sm:text-3xl lg:text-3xl font-bold mb-6 sm:mb-8 pb-4 border-b-4 border-brand-gold  inline-block text-gray-900">
-        Ready to Receive Your Custom Proposal?
-      </h2>
-      
-      <p className="text-base sm:text-lg lg:text-l text-gray-700 mb-8 sm:mb-12 leading-relaxed mt-8">
-        Let's start the conversation. Schedule your free consultation today and receive a 
-        personalized proposal that brings your vision to life.
-      </p>
-
-      <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 mb-12">
-        <Link 
-          href="/request-quote" 
-          className="inline-flex items-center justify-center gap-2 px-6 py-3 sm:px-8 sm:py-4 rounded-lg font-semibold transition-all duration-300 text-sm sm:text-base bg-brand-gold  hover:bg-black text-black hover:text-brand-gold hover:shadow-lg hover:-translate-y-0.5"
-        >
-          Request Your Proposal
-          <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-        </Link>
-        <Link
-          href="/" 
-          className="inline-flex items-center justify-center gap-2 px-6 py-3 sm:px-8 sm:py-4 rounded-lg font-semibold transition-all duration-300 text-sm sm:text-base border-2 border-brand-gold  text-brand-gold  hover:bg-black"
-        >
-          Back to Home
-        </Link>
-      </div>
-
-      {/* Additional Info Cards */}
-      <div className="grid sm:grid-cols-3 gap-4 sm:gap-6">
-        <div className="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-all">
-          <h3 className="text-xl font-bold mb-3 text-gray-900">Quick Response</h3>
-          <p className="text-sm text-gray-600">We'll get back to you within 24 hours</p>
-        </div>
-        <div className="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-all">
-          <h3 className="text-xl font-bold mb-3 text-gray-900">Free Consultation</h3>
-          <p className="text-sm text-gray-600">No obligation initial discovery call</p>
-        </div>
-        <div className="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-all">
-          <h3 className="text-xl font-bold mb-3 text-gray-900">Zero Pressure</h3>
-          <p className="text-sm text-gray-600">Take all the time you need to decide</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-</div>
-);
+  );
 }
