@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import FlawlessMoment from "@/components/FlawlessMoment";
 import ContactSection from "@/components/ContactSection";
 import CookieConsent from "@/components/CookieConsent";
+import AIChatbot from "@/components/AIChatbot";
 import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -33,6 +34,7 @@ export default function RootLayout({
         <FlawlessMoment />
         <ContactSection />
         <CookieConsent />
+        <AIChatbot />
         <Footer />
       </body>
     </html>

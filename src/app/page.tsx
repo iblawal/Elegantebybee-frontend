@@ -8,6 +8,8 @@ import Link from "next/link";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { fadeInLeft, fadeInRight, fadeInCenter } from "@/lib/animations";
 import { ArrowUpRight, Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
+import { Inter, Playfair_Display, Cormorant_Garamond } from "next/font/google";
+
 
 const G = "#C9A84C";
 
