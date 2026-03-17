@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ElegantByBee Frontend
 
-## Getting Started
+ElegantByBee is a modern event planning business website designed to help clients explore services, request quotes, view event galleries, and make secure payments online.
 
-First, run the development server:
+This project represents the frontend application of the ElegantByBee platform and was built to provide a clean, responsive, and professional experience for users planning events such as weddings, corporate gatherings, and private celebrations.
 
-```bash
+---
+
+## Features
+
+* Modern responsive event planning website
+* Service showcase for event packages
+* Request Quote form for potential clients
+* Event gallery to display past events
+* Secure payment integration
+* AI chatbot for user assistance
+* Smooth and fast user interface
+
+---
+
+## Tech Stack
+
+Frontend Framework
+
+* React
+* Next.js
+* TypeScript
+
+Styling
+
+* Tailwind CSS
+
+Payments
+
+* Stripe (International payments)
+* Paystack (Local payments)
+
+Other Integrations
+
+* AI chatbot for customer assistance
+
+---
+
+## Project Purpose
+
+The goal of this project is to build a professional online presence for an event planning brand. It allows clients to easily discover services, request quotes, and make payments through a modern and interactive interface.
+
+---
+
+## Installation
+
+Clone the repository
+
+git clone https://github.com/iblawal/Elegantbybee-frontend.git
+
+Move into the project directory
+
+cd Elegantbybee-frontend
+
+Install dependencies
+
+npm install
+
+---
+
+## Running the Project
+
+Start the development server
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open your browser and visit
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+http://localhost:3000
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Future Improvements
 
-To learn more about Next.js, take a look at the following resources:
+* Admin dashboard for managing bookings
+* Automated email notifications
+* Booking calendar system
+* Improved chatbot capabilities
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Author
 
-## Deploy on Vercel
+Lawal Ibrahim
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Full-stack developer focused on building modern web applications and digital platforms for businesses.
